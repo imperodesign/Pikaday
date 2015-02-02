@@ -107,10 +107,10 @@
         return (/Date/).test(Object.prototype.toString.call(obj)) && !isNaN(obj.getTime());
     },
 
-    isWeekend = function(date)
+    isSaturday = function(date)
     {
         var day = date.getDay();
-        return day === 0 || day === 6;
+        return day === 0;
     },
 
     isLeapYear = function(year)
@@ -947,7 +947,7 @@
                     isEmpty = i < before || i >= (days + before),
                     isDisabled = (opts.minDate && day < opts.minDate) ||
                                  (opts.maxDate && day > opts.maxDate) ||
-                                 (opts.disableWeekends && isWeekend(day)) ||
+                                 (opts.disableWeekends && isSaturday(day)) ||
                                  (opts.disableDayFn && opts.disableDayFn(day));
 
                 row.push(renderDay(1 + (i - before), month, year, isSelected, isToday, isDisabled, isEmpty));
