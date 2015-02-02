@@ -107,7 +107,7 @@
         return (/Date/).test(Object.prototype.toString.call(obj)) && !isNaN(obj.getTime());
     },
 
-    isSaturday = function(date)
+    isSunday = function(date)
     {
         var day = date.getDay();
         return day === 0;
@@ -947,7 +947,7 @@
                     isEmpty = i < before || i >= (days + before),
                     isDisabled = (opts.minDate && day < opts.minDate) ||
                                  (opts.maxDate && day > opts.maxDate) ||
-                                 (opts.disableWeekends && isSaturday(day)) ||
+                                 (opts.disableWeekends && isSunday(day)) ||
                                  (opts.disableDayFn && opts.disableDayFn(day));
 
                 row.push(renderDay(1 + (i - before), month, year, isSelected, isToday, isDisabled, isEmpty));
