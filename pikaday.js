@@ -683,7 +683,7 @@
 
                 if (this._o.field) {
                     this._o.field.value = '';
-                    fireEvent(this._o.field, 'change', { firedBy: this });
+                    fireEvent(this._o.field, 'click', { firedBy: this });
                 }
 
                 return this.draw();
@@ -710,7 +710,7 @@
 
             if (this._o.field) {
                 this._o.field.value = this.toString();
-                fireEvent(this._o.field, 'change', { firedBy: this });
+                fireEvent(this._o.field, 'click', { firedBy: this });
             }
             if (!preventOnSelect && typeof this._o.onSelect === 'function') {
                 this._o.onSelect.call(this, this.getDate());
